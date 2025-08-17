@@ -1,4 +1,70 @@
-<div>
-  <h1 class="font-bold text-4xl">Quests#index</h1>
-  <p>Find me in app/views/quests/index.html.erb</p>
+<%= link_to "My brag document", brag_document_path, class: "btn btn-primary brag-btn" %>
+
+<div class="quest-app-container">
+  <div class="quest-card">
+    <!-- Header -->
+    <div class="header">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <h1>Auearee Deephonngam</h1>
+        <div class="profile-image">
+          <%= image_tag "profile.jpg", alt: "Profile" %>
+        </div>
+        <p class="quest-count">
+          <% if @quests.any? %>
+            <%= @quests.count %> quest<%= 's' if @quests.count != 1 %> 
+            <span class="separator">•</span>
+            <%= @quests.where(done: true).count %> completed
+          <% else %>
+            Ready to start your quest journey!
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+    <!-- Add Quest Section -->
+    <div class="add-quest-section">
+      <%= form_with model: Quest.new, local: true, class: "add-quest-form" do |form| %>
+        <div class="input-group">
+          <%= form.text_field :title, placeholder: "Add new quest...", class: "add-quest-input", required: true %>
+          <button type="submit" class="add-btn" title="Add Quest">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Quest List -->
+    <div class="quest-list">
+      <% if @quests.any? %>
+        <% @quests.each do |quest| %>
+          <div class="quest-item <%= 'completed' if quest.done %>">
+            <%= form_with model: quest, url: toggle_quest_path(quest), method: :patch, local: true, class: "quest-form-inline" do |form| %>
+              <label class="quest-checkbox">
+                <input type="checkbox" <%= 'checked' if quest.done %> onchange="this.form.submit();">
+                <span class="checkmark"></span>
+              </label>
+            <% end %>
+            
+            <span class="quest-title <%= 'line-through' if quest.done %>">
+              <%= quest.title %>
+            </span>
+            
+            <%= link_to quest_path(quest), 
+                        data: { turbo_method: :delete }, 
+                        class: "delete-btn",
+                        title: "Delete quest" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="empty-state">
+          <i class="fas fa-rocket"></i>
+          <h3>No quests yet!</h3>
+          <p>Add your first quest above to get started</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
