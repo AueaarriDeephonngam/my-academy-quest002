@@ -16,7 +16,7 @@ RSpec.describe "Quest Factory", type: :model do
 
     it "has default done value" do
       quest = FactoryBot.create(:quest)
-      expect([nil, false, true]).to include(quest.done)
+      expect([ nil, false, true ]).to include(quest.done)
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe "Quest Factory", type: :model do
       # This would work if we had a :completed trait
       # quest = FactoryBot.create(:quest, :completed)
       # expect(quest.done).to be true
-      
+
       quest = FactoryBot.create(:quest, done: true)
       expect(quest.done).to be true
     end

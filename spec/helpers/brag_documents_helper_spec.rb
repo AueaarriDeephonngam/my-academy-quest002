@@ -31,7 +31,7 @@ RSpec.describe BragDocumentsHelper, type: :helper do
   #     expect(helper.format_achievement("Completed project")).to include("✅")
   #   end
   # end
-  # 
+  #
   # describe "#brag_document_title" do
   #   it "would generate appropriate title" do
   #     expect(helper.brag_document_title("John")).to eq("John's Achievements")

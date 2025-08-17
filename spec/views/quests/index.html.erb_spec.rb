@@ -10,7 +10,7 @@ RSpec.describe "quests/index", type: :view do
 
   context "when quests exist" do
     before(:each) do
-      assign(:quests, Quest.where(id: [quest1.id, quest2.id]))
+      assign(:quests, Quest.where(id: [ quest1.id, quest2.id ]))
       render
     end
 

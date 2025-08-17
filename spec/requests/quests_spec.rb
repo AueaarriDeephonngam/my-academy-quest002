@@ -4,7 +4,7 @@ RSpec.describe "Quests", type: :request do
   before(:each) do
     Quest.delete_all  # Clean up database for isolated tests
   end
-  
+
   let(:valid_attributes) {
     { title: "Complete RSpec tests" }
   }
@@ -67,7 +67,7 @@ RSpec.describe "Quests", type: :request do
 
       context "Turbo Stream format" do
         it "renders turbo stream response" do
-          post quests_path, params: { quest: valid_attributes }, 
+          post quests_path, params: { quest: valid_attributes },
                headers: { "Accept" => "text/vnd.turbo-stream.html" }
           expect(response.media_type).to eq("text/vnd.turbo-stream.html")
           expect(response).to have_http_status(:success)
@@ -119,7 +119,7 @@ RSpec.describe "Quests", type: :request do
 
     context "Turbo Stream format" do
       it "renders turbo stream response" do
-        patch toggle_quest_path(quest), 
+        patch toggle_quest_path(quest),
               headers: { "Accept" => "text/vnd.turbo-stream.html" }
         expect(response.media_type).to eq("text/vnd.turbo-stream.html")
         expect(response).to have_http_status(:success)
@@ -195,11 +195,11 @@ RSpec.describe "Quests", type: :request do
 
     it "displays quests in descending order (newest first)" do
       get quests_path
-      
+
       # Check that newer quest appears before older quest in the response
       newer_position = response.body.index("Newer quest")
       older_position = response.body.index("Older quest")
-      
+
       expect(newer_position).to be < older_position
     end
   end
@@ -224,7 +224,7 @@ RSpec.describe "Quests", type: :request do
 
     it "correctly handles partial deletions" do
       delete quest_path(quest2)
-      
+
       expect(Quest.count).to eq(2)
       expect(Quest.find_by(id: quest2.id)).to be_nil
       expect(Quest.find_by(id: quest1.id)).to be_present

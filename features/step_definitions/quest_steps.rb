@@ -90,16 +90,16 @@ Given('I have the following quests:') do |table|
   Quest.delete_all
   table.hashes.each do |quest_data|
     created_at = case quest_data['created_at']
-                 when '3 days ago'
+    when '3 days ago'
                    3.days.ago
-                 when '1 day ago'
+    when '1 day ago'
                    1.day.ago
-                 when '1 hour ago'
+    when '1 hour ago'
                    1.hour.ago
-                 else
+    else
                    Time.current
-                 end
-    
+    end
+
     Quest.create!(
       title: quest_data['title'],
       done: quest_data['done'] == 'true',
@@ -179,7 +179,7 @@ end
 Then('I should see quests in the following order:') do |table|
   quest_titles = table.raw.flatten
   quest_items = all('.quest-item .quest-title')
-  
+
   quest_titles.each_with_index do |expected_title, index|
     expect(quest_items[index]).to have_content(expected_title)
   end
@@ -218,7 +218,7 @@ Then('the quest {string} should be visually marked as completed immediately') do
   within(quest_item) do
     expect(find('input[type="checkbox"]', visible: false)).to be_checked
   end
-  # In a real scenario, we'd check for .completed class, but due to Turbo Stream structure issues, 
+  # In a real scenario, we'd check for .completed class, but due to Turbo Stream structure issues,
   # we'll verify the database state instead
   quest = Quest.find_by(title: quest_title)
   expect(quest.done).to be true
@@ -242,7 +242,7 @@ end
 Then('the quest count should remain accurate') do
   total_quests = Quest.count
   completed_quests = Quest.where(done: true).count
-  
+
   within('#quest-count') do
     if total_quests == 1
       expect(page).to have_content("1 quest")

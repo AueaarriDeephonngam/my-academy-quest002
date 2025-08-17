@@ -32,14 +32,14 @@ RSpec.describe QuestsHelper, type: :helper do
   #     expect(helper.quest_status_class(false)).to eq("pending")
   #   end
   # end
-  # 
+  #
   # describe "#quest_count_text" do
   #   it "would format quest count text properly" do
   #     expect(helper.quest_count_text(1, 0)).to eq("1 quest • 0 completed")
   #     expect(helper.quest_count_text(5, 3)).to eq("5 quests • 3 completed")
   #   end
   # end
-  # 
+  #
   # describe "#quest_completion_percentage" do
   #   it "would calculate completion percentage" do
   #     expect(helper.quest_completion_percentage(10, 7)).to eq(70)

@@ -50,7 +50,7 @@ RSpec.describe Quest, type: :model do
     it "has completed scope" do
       completed_quest = Quest.create!(title: "Done", done: true)
       incomplete_quest = Quest.create!(title: "Not done", done: false)
-      
+
       expect(Quest.completed).to include(completed_quest)
       expect(Quest.completed).not_to include(incomplete_quest)
     end
@@ -59,7 +59,7 @@ RSpec.describe Quest, type: :model do
       incomplete_quest = Quest.create!(title: "Not done", done: false)
       nil_quest = Quest.create!(title: "Nil done", done: nil)
       complete_quest = Quest.create!(title: "Done", done: true)
-      
+
       expect(Quest.pending).to include(incomplete_quest, nil_quest)
       expect(Quest.pending).not_to include(complete_quest)
     end
@@ -93,7 +93,7 @@ RSpec.describe Quest, type: :model do
     it "persists to database correctly" do
       quest = Quest.create!(title: "Persistent quest", done: true)
       reloaded_quest = Quest.find(quest.id)
-      
+
       expect(reloaded_quest.title).to eq("Persistent quest")
       expect(reloaded_quest.done).to be true
     end
@@ -101,7 +101,7 @@ RSpec.describe Quest, type: :model do
     it "maintains data integrity after updates" do
       quest = Quest.create!(title: "Original title", done: false)
       quest.update!(title: "Updated title", done: true)
-      
+
       reloaded_quest = Quest.find(quest.id)
       expect(reloaded_quest.title).to eq("Updated title")
       expect(reloaded_quest.done).to be true

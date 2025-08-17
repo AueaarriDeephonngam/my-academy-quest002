@@ -27,10 +27,10 @@ RSpec.describe QuestsController, type: :controller do
     it "assigns @quests with all quests ordered by created_at desc" do
       quest1 = Quest.create!(title: "First", created_at: 1.day.ago)
       quest2 = Quest.create!(title: "Second", created_at: 1.hour.ago)
-      
+
       get :index
-      
-      expect(assigns(:quests).to_a).to eq([quest2, quest1])
+
+      expect(assigns(:quests).to_a).to eq([ quest2, quest1 ])
     end
 
     context "when no quests exist" do
@@ -236,13 +236,13 @@ RSpec.describe QuestsController, type: :controller do
       before(:each) do
         Quest.delete_all  # Clean up for isolated tests
       end
-      
+
       let!(:quest1) { Quest.create!(title: "First", created_at: 2.hours.ago) }
       let!(:quest2) { Quest.create!(title: "Second", created_at: 1.hour.ago) }
 
       it "loads quests in descending order for index" do
         get :index
-        expect(assigns(:quests).to_a).to eq([quest2, quest1])
+        expect(assigns(:quests).to_a).to eq([ quest2, quest1 ])
       end
 
       it "loads quests in descending order for create" do
@@ -258,24 +258,24 @@ RSpec.describe QuestsController, type: :controller do
 
       it "loads quests in descending order for destroy" do
         delete :destroy, params: { id: quest1.id }
-        expect(assigns(:quests).to_a).to eq([quest2])
+        expect(assigns(:quests).to_a).to eq([ quest2 ])
       end
     end
 
     describe "#quest_params" do
       it "permits only title parameter" do
         controller_params = ActionController::Parameters.new({
-          quest: { 
-            title: "Valid title", 
-            done: true, 
+          quest: {
+            title: "Valid title",
+            done: true,
             created_at: Time.current,
             malicious_param: "hack attempt"
           }
         })
-        
+
         allow(controller).to receive(:params).and_return(controller_params)
         permitted_params = controller.send(:quest_params)
-        
+
         expect(permitted_params.to_h).to eq({ "title" => "Valid title" })
       end
     end
