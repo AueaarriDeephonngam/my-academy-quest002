@@ -21,6 +21,15 @@ jobs:
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
+      
+      - name: Run all tests
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
+        run: |
+          bin/rails db:test:prepare
+          bundle exec rspec --format documentation
+          bundle exec cucumber --format pretty
 
   scan_js:
     runs-on: ubuntu-latest
