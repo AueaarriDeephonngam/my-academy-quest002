@@ -19,72 +19,6 @@
           null
         ]
       },
-      "/Users/lajibolala/Documents/my-academy-quest-002/app/controllers/quests_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          10,
-          null,
-          null,
-          1,
-          19,
-          null,
-          19,
-          11,
-          20,
-          11,
-          null,
-          null,
-          8,
-          14,
-          10,
-          null,
-          null,
-          null,
-          null,
-          1,
-          15,
-          15,
-          28,
-          15,
-          null,
-          null,
-          null,
-          1,
-          14,
-          14,
-          26,
-          14,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          32,
-          null,
-          null,
-          1,
-          58,
-          null,
-          null,
-          1,
-          20,
-          null,
-          null
-        ]
-      },
-      "/Users/lajibolala/Documents/my-academy-quest-002/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/lajibolala/Documents/my-academy-quest-002/app/models/quest.rb": {
         "lines": [
           1,
@@ -102,13 +36,82 @@
           null
         ]
       },
+      "/Users/lajibolala/Documents/my-academy-quest-002/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {}
+      },
       "/Users/lajibolala/Documents/my-academy-quest-002/app/controllers/brag_documents_controller.rb": {
         "lines": [
-          1,
-          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/lajibolala/Documents/my-academy-quest-002/app/controllers/quests_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
           null,
-          null
-        ]
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
       },
       "/Users/lajibolala/Documents/my-academy-quest-002/app/jobs/application_job.rb": {
         "lines": [
@@ -132,6 +135,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1755456411
+    "timestamp": 1755459428
   }
 }
