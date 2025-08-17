@@ -16,6 +16,11 @@ body:not(.brag-page) {
   padding: 20px;
 }
 
+body.brag-page {
+  padding: 0;
+  margin: 0;
+}
+
 /* Brag Button */
 .brag-btn {
   position: fixed;
@@ -47,10 +52,10 @@ body:not(.brag-page) {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  min-height: 100vh;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: calc(100vh - 40px);
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
@@ -353,6 +358,8 @@ body:not(.brag-page) {
   
   .quest-app-container {
     padding: 20px 15px;
+    align-items: flex-start;
+    min-height: calc(100vh - 30px);
   }
   
   .quest-card {
@@ -435,6 +442,8 @@ body:not(.brag-page) {
   
   .quest-app-container {
     padding: 15px 10px;
+    align-items: flex-start;
+    min-height: calc(100vh - 20px);
   }
   
   .header {
@@ -510,14 +519,45 @@ body:not(.brag-page) {
   }
 }
 
+/* Medium screens */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .quest-app-container {
+    padding: 40px 30px;
+    align-items: center;
+  }
+  
+  .quest-card {
+    max-width: 500px;
+  }
+  
+  .brag-document {
+    max-width: 100%;
+  }
+  
+  .brag-content {
+    padding: 30px 25px;
+    max-width: 100%;
+  }
+}
+
 /* Large screens */
 @media (min-width: 1024px) {
   .quest-app-container {
     padding: 60px 20px;
+    align-items: center;
   }
   
   .quest-card {
-    max-width: 700px;
+    max-width: 650px;
+  }
+  
+  .brag-document {
+    max-width: 100%;
+  }
+  
+  .brag-content {
+    padding: 50px 40px;
+    max-width: 100%;
   }
   
   .header {
@@ -581,6 +621,18 @@ body:not(.brag-page) {
   .delete-btn {
     font-size: 22px;
     padding: 12px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  .quest-app-container {
+    padding: 80px 40px;
+  }
+  
+  .brag-content {
+    padding: 60px 50px;
+    max-width: 100%;
   }
 }
 
@@ -725,5 +777,658 @@ body:not(.brag-page) {
   
   .delete-btn {
     display: none;
+  }
+}
+
+/* Brag Document Styles */
+.brag-document {
+  min-height: 100vh;
+  background: #2d3748;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.brag-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #2d3748;
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Background image overlay styles */
+.brag-header.with-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.brag-header.with-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%);
+  z-index: 1;
+}
+
+.brag-header .header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.brag-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('/assets/header.jpeg') center center/cover no-repeat;
+}
+
+.header-content {
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  background: rgba(102, 126, 234, 0.8);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  color: white;
+  background: rgba(102, 126, 234, 0.9);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.profile-section {
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+}
+
+.profile-avatar::before {
+  content: '👨‍💻';
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #2d3748;
+  text-shadow: none;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.brag-content {
+  max-width: 100%;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+.brag-section {
+  background: white;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.section-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #2d3748;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Goals Section */
+.goals-section .section-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #2d3748;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.goal-card {
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.goal-card.primary {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+}
+
+.goal-card.secondary {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+}
+
+.goal-card.accent {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+}
+
+.goal-card.skill {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+}
+
+.goal-card.language {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+}
+
+.goal-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.goal-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.goal-card p {
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Self Development Section */
+.self-section .section-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #2d3748;
+}
+
+.development-list {
+  padding: 40px;
+}
+
+.dev-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  background: #f8fafc;
+  border-radius: 15px;
+}
+
+.dev-item:last-child {
+  margin-bottom: 0;
+}
+
+.dev-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.dev-content h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.dev-content p {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Activities & Achievements Section (Team, ODT, Client) */
+.team-section .section-header,
+.odt-section .section-header,
+.client-section .section-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #2d3748;
+}
+
+/* Unified Grid Layout for All Three Sections */
+.team-activities,
+.odt-goals,
+.client-achievement {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+/* Unified Card Styles */
+.activity-card,
+.odt-card,
+.achievement-card {
+  text-align: center;
+  padding: 30px 25px;
+  background: #f8fafc;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 180px;
+}
+
+/* Special styling for achievement card */
+.achievement-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+/* Unified Icon Styles */
+.activity-icon,
+.odt-icon,
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 0 20px 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Achievement icon special styling */
+.achievement-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+/* Unified Content Styles */
+.activity-card h4,
+.odt-card h4,
+.achievement-card h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.achievement-card h4 {
+  font-size: 1.5rem;
+}
+
+.activity-card p,
+.odt-card p,
+.achievement-card p {
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.achievement-card p {
+  font-size: 1.1rem;
+}
+
+/* Responsive Design for Brag Document */
+@media (max-width: 768px) {
+  .brag-page {
+    background: white;
+    padding: 0;
+  }
+  
+  .brag-document {
+    min-height: 100vh;
+    background: white;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .brag-header {
+    padding: 30px 20px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  .brag-content {
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .brag-section {
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 8px solid #f8fafc;
+    background: white;
+  }
+  
+  .section-header {
+    padding: 20px 20px 15px;
+    flex-direction: row;
+    text-align: left;
+    gap: 15px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  .section-header h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    align-self: center;
+  }
+  
+  /* Goals Section Mobile */
+  .goals-grid {
+    display: block;
+    padding: 0;
+  }
+  
+  .goal-card {
+    margin: 0 20px 15px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .goal-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    border-radius: 12px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+  }
+  
+  .goal-content {
+    flex: 1;
+  }
+  
+  .goal-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .goal-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.9;
+  }
+  
+  /* Development List Mobile */
+  .development-list {
+    padding: 0;
+  }
+  
+  .dev-item {
+    flex-direction: row;
+    text-align: left;
+    gap: 15px;
+    padding: 20px;
+    margin: 0 20px 10px;
+    border-radius: 12px;
+    align-items: flex-start;
+  }
+  
+  .dev-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+  
+  .dev-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .dev-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Team, ODT, Client Activities Mobile - Unified Layout */
+  .team-activities,
+  .odt-goals,
+  .client-achievement {
+    display: block;
+    padding: 0;
+  }
+  
+  .activity-card,
+  .odt-card,
+  .achievement-card {
+    margin: 0 20px 15px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: auto;
+    flex-direction: row;
+  }
+  
+  .activity-icon,
+  .odt-icon,
+  .achievement-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    border-radius: 12px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+  }
+  
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  
+  .activity-content,
+  .odt-content,
+  .achievement-content {
+    flex: 1;
+  }
+  
+  .activity-card h4,
+  .odt-card h4,
+  .achievement-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+  }
+  
+  .activity-card p,
+  .odt-card p,
+  .achievement-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .brag-page {
+    background: white;
+    padding: 0;
+  }
+  
+  .brag-document {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .brag-header {
+    padding: 15px 10px;
+  }
+  
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .brag-content {
+    padding: 0;
+  }
+  
+  .brag-section {
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .goals-grid,
+  .team-activities,
+  .odt-goals,
+  .development-list,
+  .client-achievement {
+    padding: 15px 10px;
+  }
+  
+  .section-header {
+    padding: 15px 10px;
+  }
+  
+  .goal-card,
+  .activity-card,
+  .odt-card,
+  .achievement-card {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .dev-item {
+    padding: 15px;
+    margin-bottom: 10px;
   }
 }
